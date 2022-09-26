@@ -10,4 +10,5 @@
     <string name="exit">Return</string>
     <string name="no_se_que_poner_pero_me_obligan_wey">NO SE QUE PONER PERO ME OBLIGAN WEY</string>
     <string name="restore_password">Enviando contraseña a :</string>
+    <string name="logout">LogOut</string>
 </resources>

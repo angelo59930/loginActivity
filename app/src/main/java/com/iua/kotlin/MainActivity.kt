@@ -1,5 +1,6 @@
 package com.iua.kotlin
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -22,13 +23,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     binding.logGin.setOnClickListener {
-      if(!validation(campo = "Email", validate = binding.editTextTextEmailAddress.text.toString()) &&
-      !validation(campo = "User", validate = binding.editTextTextPersonName.text.toString()) &&
-      !validation(campo = "Password", validate = binding.editTextTextPassword.text.toString())
+      val email = binding.editTextTextEmailAddress.text.toString()
+      val user = binding.editTextTextPersonName.text.toString()
+      val password = binding.editTextTextPassword.text.toString()
+      if(!validation(campo = "Email", validate =email) &&
+      !validation(campo = "User", validate = user) &&
+      !validation(campo = "Password", validate = password)
       ){
-        //TODO: AGREGAR EL INTENT PARA CAMBIAR DE ACTIVITY
-
+        if(email == "admin@admin.com" && user == "admin" && password == "admin"){
+          val intent:Intent = Intent(this,SecondActivity::class.java)
+          intent.putExtra("user",user)
+          startActivity(intent)
+        }
+        else{
+          generateToast("Su usuario no se encuentra registrado",0)
+        }
       }
+
     }
 
     binding.register.setOnClickListener {
@@ -36,15 +47,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     binding.exit.setOnClickListener {
-      //TODO: AGREGAR INTENT PARA SALIR DE LA APP
-
+      onBackPressed()
     }
 
   }
 
   private fun validation(validate:String, campo : String):Boolean{
     if(validate.isEmpty()){
-      generateToast("El campo: " + campo + "esta vacio.",1)
+      generateToast("El campo: " + campo + " esta vacio.",1)
       return true
     }
     return false
