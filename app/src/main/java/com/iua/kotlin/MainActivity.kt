@@ -57,7 +57,7 @@ class MainActivity : AppCompatActivity() {
 
   private fun validation(validate:String, campo : String):Boolean{
     if(validate.isEmpty()){
-      generateToast("El campo: " + campo + " esta vacio.",1)
+      generateToast("El campo: $campo esta vacio.",1)
       return true
     }
     return false
