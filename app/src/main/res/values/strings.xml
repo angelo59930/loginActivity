@@ -11,4 +11,14 @@
     <string name="no_se_que_poner_pero_me_obligan_wey">NO SE QUE PONER PERO ME OBLIGAN WEY</string>
     <string name="restore_password">Enviando contraseña a :</string>
     <string name="logout">LogOut</string>
+
+    <!-- RECURSOS PARA LAS CALSES -->
+    <string name="datos_incompletos">Debe completar todos los datos para inciar sesion</string>
+    <string name="proximamente">Proximamente...</string>
+    <string name="usuario_no_registrado">Su usuario no se encuentra registrado</string>
+
+    <!-- USUARIO DE PRUEBA -->
+    <string name="admin_user">admin</string>
+    <string name="admin_password">admin</string>
+    <string name="admin_email">admin@admin.com</string>
 </resources>

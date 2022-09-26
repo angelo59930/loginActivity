@@ -30,26 +30,29 @@ class MainActivity : AppCompatActivity() {
       !validation(campo = "User", validate = user) &&
       !validation(campo = "Password", validate = password)
       ){
-        if(email == "admin@admin.com" && user == "admin" && password == "admin"){
+        if(email == R.string.admin_email.toString() && user == R.string.admin_user.toString() && password == R.string.admin_password.toString()){
           val intent:Intent = Intent(this,SecondActivity::class.java)
           intent.putExtra("user",user)
           startActivity(intent)
         }
         else{
-          generateToast("Su usuario no se encuentra registrado",0)
+          generateToast(R.string.usuario_no_registrado.toString(),0)
         }
       }
 
     }
 
     binding.register.setOnClickListener {
-      Snackbar.make(view,"Proximamente...",Snackbar.LENGTH_LONG).show()
+      Snackbar.make(view,R.string.proximamente.toString(),Snackbar.LENGTH_LONG).show()
     }
 
     binding.exit.setOnClickListener {
       onBackPressed()
     }
 
+    binding.floatingActionButton.setOnClickListener{
+      generateToast(R.string.datos_incompletos.toString(),1)
+    }
   }
 
   private fun validation(validate:String, campo : String):Boolean{
